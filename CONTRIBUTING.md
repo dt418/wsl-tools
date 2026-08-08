@@ -79,6 +79,18 @@ Use short, imperative summaries (e.g. `Fix live VHDX size check`, `Document fail
 3. Update the CHANGELOG and documentation if user-visible behavior changed.
 4. Keep the diff focused — unrelated formatting changes make review harder.
 
+## Branch protection
+
+`main` is protected for everyone, including admins:
+
+- Changes must go through a pull request
+- Required status checks must pass:
+  - `Validate documentation`
+  - `Validate PowerShell syntax`
+- Stale reviews are dismissed when new commits are pushed
+- Conversations must be resolved before merge
+- Force-pushes and branch deletion are blocked
+
 ## Questions
 
 Open an issue if you are unsure whether a change fits the project before investing time in a large PR.
