@@ -23,3 +23,4 @@ và dự án tuân theo [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Bộ công cụ kiểm tra: `npm run validate` phân tích mọi sơ đồ Mermaid, xác minh code fence và link nội bộ trong Markdown, đồng thời chạy kiểm tra cú pháp PowerShell mà không thực thi script (`scripts/validate-docs.mjs`, `scripts/validate-ps1.mjs`, `scripts/validate-ps1.ps1`).
 - Git hooks qua lefthook: `pre-commit` (tài liệu + PowerShell), `commit-msg` (commitlint / Conventional Commits), `pre-push` (toàn bộ bộ CI).
 - GitHub Actions CI: kiểm tra tài liệu, kiểm tra đồng bộ tài liệu Anh / Việt, kiểm tra cú pháp PowerShell trên Windows, và commitlint trên pull request.
+- Bảo vệ nhánh `main` (kể cả admin): bắt buộc pull request, bắt buộc CI checks, resolve conversation, và chặn force-push/xóa nhánh.

@@ -79,6 +79,18 @@ Dùng tóm tắt ngắn, mệnh lệnh (ví dụ `Fix live VHDX size check`, `Do
 3. Cập nhật CHANGELOG và tài liệu nếu hành vi hiển thị với người dùng thay đổi.
 4. Giữ diff tập trung — thay đổi định dạng không liên quan khiến review khó hơn.
 
+## Bảo vệ nhánh
+
+`main` được bảo vệ cho mọi người, kể cả admin:
+
+- Thay đổi phải đi qua pull request
+- Các status check bắt buộc phải pass:
+  - `Validate documentation`
+  - `Validate PowerShell syntax`
+- Review cũ bị hủy khi có commit mới
+- Conversation phải được resolve trước khi merge
+- Force-push và xóa nhánh bị chặn
+
 ## Câu hỏi
 
 Mở issue nếu bạn không chắc thay đổi có phù hợp với dự án trước khi đầu tư thời gian vào một PR lớn.
