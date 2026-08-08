@@ -32,6 +32,24 @@ Lệnh này chạy hai bước kiểm tra:
 - **Kiểm tra tài liệu** (`npm run validate:docs`) — phân tích mọi sơ đồ `mermaid` (qua `scripts/validate-docs.mjs`), xác minh mọi code fence trong Markdown cân bằng, và kiểm tra mọi link nội bộ trong Markdown trỏ đến file thật.
 - **Kiểm tra cú pháp PowerShell** (`npm run validate:ps1`) — cùng bước kiểm tra parser mà launcher thực hiện, không thực thi script (`scripts/validate-ps1.mjs` + `scripts/validate-ps1.ps1`). Trên hệ thống không phải Windows, bước này tự động bỏ qua.
 
+Với toàn bộ bộ kiểm tra CI (validation + đồng bộ tài liệu Anh / Việt):
+
+```powershell
+npm run ci
+```
+
+Git hooks được quản lý bởi [lefthook](https://github.com/evilmartians/lefthook):
+
+- `pre-commit` — kiểm tra các file Markdown và PowerShell đã stage
+- `commit-msg` — bắt buộc Conventional Commits qua commitlint
+- `pre-push` — chạy toàn bộ `npm run ci`
+
+Cài hooks sau khi clone:
+
+```powershell
+npx lefthook install
+```
+
 ## Kiểm thử
 
 > **Cảnh báo:** luồng MOVE tắt WSL và gọi `wsl --unregister`. Chỉ kiểm thử luồng đầy đủ trên một distro dùng một lần hoặc máy mà bạn chấp nhận mất, và luôn giữ bản sao lưu riêng của mình.

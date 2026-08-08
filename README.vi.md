@@ -118,7 +118,16 @@ npm install
 npm run validate
 ```
 
-`npm run validate` phân tích mọi sơ đồ Mermaid, kiểm tra code fence và link nội bộ trong Markdown, đồng thời chạy kiểm tra cú pháp PowerShell mà không thực thi script. Xem [CONTRIBUTING.vi.md](CONTRIBUTING.vi.md) để biết chi tiết.
+`npm run validate` phân tích mọi sơ đồ Mermaid, kiểm tra code fence và link nội bộ trong Markdown, đồng thời chạy kiểm tra cú pháp PowerShell mà không thực thi script.
+
+GitHub Actions chạy cùng các bước kiểm tra trên mọi push và pull request, kèm kiểm tra đồng bộ tài liệu Anh / Việt:
+
+```powershell
+npm run check:docs-sync
+npm run ci
+```
+
+Xem [CONTRIBUTING.vi.md](CONTRIBUTING.vi.md) để biết chi tiết.
 
 ## Đóng góp
 

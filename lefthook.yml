@@ -20,4 +20,4 @@ commit-msg:
 pre-push:
   commands:
     validate-all:
-      run: npm run validate
+      run: npm run ci

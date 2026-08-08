@@ -118,7 +118,16 @@ npm install
 npm run validate
 ```
 
-`npm run validate` parses every Mermaid diagram, checks Markdown code fences and internal links, and runs the PowerShell syntax check without executing the script. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+`npm run validate` parses every Mermaid diagram, checks Markdown code fences and internal links, and runs the PowerShell syntax check without executing the script.
+
+GitHub Actions run the same checks on every push and pull request, plus an English / Vietnamese documentation sync check:
+
+```powershell
+npm run check:docs-sync
+npm run ci
+```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## Contributing
 

@@ -21,3 +21,5 @@ và dự án tuân theo [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - Tài liệu: README, CONTRIBUTING, SECURITY, CODE_OF_CONDUCT và bản phân tích sâu mô hình an toàn tại `docs/SAFETY_MODEL.md`.
 - Bản dịch tiếng Việt cho toàn bộ tài liệu (các file `*.vi.md`).
 - Bộ công cụ kiểm tra: `npm run validate` phân tích mọi sơ đồ Mermaid, xác minh code fence và link nội bộ trong Markdown, đồng thời chạy kiểm tra cú pháp PowerShell mà không thực thi script (`scripts/validate-docs.mjs`, `scripts/validate-ps1.mjs`, `scripts/validate-ps1.ps1`).
+- Git hooks qua lefthook: `pre-commit` (tài liệu + PowerShell), `commit-msg` (commitlint / Conventional Commits), `pre-push` (toàn bộ bộ CI).
+- GitHub Actions CI: kiểm tra tài liệu, kiểm tra đồng bộ tài liệu Anh / Việt, kiểm tra cú pháp PowerShell trên Windows, và commitlint trên pull request.

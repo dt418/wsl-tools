@@ -11,7 +11,9 @@
   "scripts": {
     "validate": "npm run validate:docs && npm run validate:ps1",
     "validate:docs": "node scripts/validate-docs.mjs",
-    "validate:ps1": "node scripts/validate-ps1.mjs"
+    "validate:ps1": "node scripts/validate-ps1.mjs",
+    "check:docs-sync": "node scripts/check-docs-sync.mjs",
+    "ci": "npm run validate && npm run check:docs-sync"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",

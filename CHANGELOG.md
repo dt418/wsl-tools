@@ -21,3 +21,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Documentation: README, CONTRIBUTING, SECURITY, CODE_OF_CONDUCT, and the safety-model deep dive in `docs/SAFETY_MODEL.md`.
 - Vietnamese translations of the full documentation set (`*.vi.md`), linked from the English files.
 - Validation toolchain: `npm run validate` parses every Mermaid diagram, verifies Markdown fences and internal links, and runs the PowerShell parser check without executing the script (`scripts/validate-docs.mjs`, `scripts/validate-ps1.mjs`, `scripts/validate-ps1.ps1`).
+- Git hooks via lefthook: `pre-commit` (docs + PowerShell), `commit-msg` (commitlint / Conventional Commits), `pre-push` (full CI suite).
+- GitHub Actions CI: documentation validation, English / Vietnamese docs sync check, PowerShell syntax validation on Windows, and commitlint on pull requests.

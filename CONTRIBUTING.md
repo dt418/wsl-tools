@@ -32,6 +32,24 @@ This runs two checks:
 - **Documentation validation** (`npm run validate:docs`) — parses every `mermaid` diagram (via `scripts/validate-docs.mjs`), verifies that every Markdown code fence is balanced, and checks that every internal Markdown link resolves to a real file.
 - **PowerShell syntax validation** (`npm run validate:ps1`) — the same parser check the launcher performs, without executing the script (`scripts/validate-ps1.mjs` + `scripts/validate-ps1.ps1`). On non-Windows systems this step is skipped automatically.
 
+For the full CI suite (validation + English / Vietnamese documentation sync):
+
+```powershell
+npm run ci
+```
+
+Git hooks are managed by [lefthook](https://github.com/evilmartians/lefthook):
+
+- `pre-commit` — validates staged Markdown and PowerShell files
+- `commit-msg` — enforces Conventional Commits via commitlint
+- `pre-push` — runs the full `npm run ci` suite
+
+Install hooks after cloning:
+
+```powershell
+npx lefthook install
+```
+
 ## Testing
 
 > **Warning:** the MOVE flow shuts down WSL and calls `wsl --unregister`. Only test the full flow on a disposable distro or a machine you can afford to lose, and always keep your own backups.

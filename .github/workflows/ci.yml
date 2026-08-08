@@ -1,0 +1,64 @@
+# Continuous integration for WSL Safe Backup / Move / Restore.
+#
+# Jobs:
+#   - docs: parse Mermaid diagrams, check Markdown fences and internal links,
+#           and verify English / Vietnamese documentation pairs stay in sync
+#   - powershell: run the PowerShell parser check on Windows
+
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  docs:
+    name: Validate documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate Markdown, Mermaid, and links
+        run: npm run validate:docs
+
+      - name: Check English / Vietnamese documentation pairs
+        run: node scripts/check-docs-sync.mjs
+
+  powershell:
+    name: Validate PowerShell syntax
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate PowerShell syntax
+        run: npm run validate:ps1
