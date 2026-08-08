@@ -1,0 +1,23 @@
+{
+  "name": "wsl-safe-backup-restore",
+  "version": "1.0.0",
+  "description": "Safely back up, move, and restore WSL2 distributions. Includes a documentation validation toolchain.",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "validate": "npm run validate:docs && npm run validate:ps1",
+    "validate:docs": "node scripts/validate-docs.mjs",
+    "validate:ps1": "node scripts/validate-ps1.mjs"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.0",
+    "jsdom": "^30.0.1",
+    "lefthook": "^1.11.13",
+    "mermaid": "^11.16.1"
+  }
+}

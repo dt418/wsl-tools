@@ -1,0 +1,28 @@
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.suo
+*.user
+
+# PowerShell
+*.ps1.bak
+*.ps1.old
+
+# Node.js (documentation validation toolchain)
+node_modules/
+npm-debug.log*
+
+# Lefthook generated hooks (recreated by `npx lefthook install`)
+.lefthook/
+
+# Legacy husky directory (clean up manually if present)
+.husky/
+
+# Disk images / backups (never commit VHD/VHDX files)
+*.vhd
+*.vhdx

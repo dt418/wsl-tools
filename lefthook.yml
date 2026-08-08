@@ -1,0 +1,23 @@
+# Lefthook git hooks configuration.
+#
+# Install with:  npx lefthook install
+# Run manually:  npx lefthook run pre-commit
+
+pre-commit:
+  parallel: true
+  commands:
+    validate-markdown:
+      run: npm run validate:docs -- {staged_files}
+    validate-powershell:
+      glob: "*.ps1"
+      run: npm run validate:ps1
+
+commit-msg:
+  commands:
+    commitlint:
+      run: npx --no -- commitlint --edit {1}
+
+pre-push:
+  commands:
+    validate-all:
+      run: npm run validate

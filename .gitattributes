@@ -1,0 +1,16 @@
+# Normalize line endings to LF in the repository.
+* text=auto
+
+# Shell scripts must stay LF so sh can execute them on Windows.
+*.sh text eol=lf
+
+# Windows launcher/script files: keep CRLF on checkout, LF in the repo.
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Text documents: LF everywhere.
+*.md text eol=lf
+*.mjs text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
